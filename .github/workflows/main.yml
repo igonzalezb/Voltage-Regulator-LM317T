@@ -1,0 +1,30 @@
+- name: InteractiveHTMLBom Generator
+  # You may pin to the exact commit or the version.
+  # uses: chuckwagoncomputing/ibom-action@d2821039abba0fbe3fad29e795d28cea27465b24
+  uses: chuckwagoncomputing/ibom-action@1.0
+  with:
+    # Location of .kicad_pcb file
+    # You can use globs to match multiple files, for example:
+    ./*.kicad_pcb
+  files: 
+    # Paths to exclude, for example:
+    ./hardware/rusefi-lib/*
+    
+  exclude: # optional
+
+- name: kicad render pcb
+  # You may pin to the exact commit or the version.
+  # uses: linalinn/kicad-render@3b87273530d37077ca55367774980ebea5be7697
+  uses: linalinn/kicad-render@v0.1
+  with:
+    # Path to your .kicad_pcb
+    pcb_file: 
+      ./*.kicad_pcb
+    # path to where top.png and bottom.png should be created
+    output_path:
+      ./images
+    # Image background. Options: transparent, opaque. Default: transparent for PNG, opaque for JPEG
+    background: # optional, default is transparent
+    # If an animation of the PCB rotating should be rendered (mp4 or gif) (background dose not apply)
+    animation: # optional
+          
